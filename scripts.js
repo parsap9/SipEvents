@@ -46,4 +46,17 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
+
+    // Setup newsletter form
+    const newsletterForm = document.querySelector('.newsletter form');
+    if (newsletterForm) {
+        newsletterForm.setAttribute('action', 'https://formspree.io/f/myzkbqoq');
+        newsletterForm.setAttribute('method', 'POST');
+        
+        // Ensure email input has name attribute
+        const emailInput = newsletterForm.querySelector('input[type="email"]');
+        if (emailInput && !emailInput.hasAttribute('name')) {
+            emailInput.setAttribute('name', 'email');
+        }
+    }
 });
