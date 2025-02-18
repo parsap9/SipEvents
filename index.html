@@ -3,35 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sip - Wine Tasting Experience</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>SIP - Urban Wine Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caslon:wght@400;500;600&family=Playfair+Display:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="scripts.js"></script>
 </head>
 <body>
     <div class="hero">
         <div class="hero-content">
-            <h1>Sip</h1>
-            <p class="tagline">An Evening of Exceptional Wines</p>
+            <h1>SIP</h1>
+            <p class="tagline">Urban Wine Culture</p>
             <div class="cta-group">
-                <a href="#tickets" class="cta-button">Reserve Your Experience</a>
+                <a href="#tickets" class="cta-button">Book Experience</a>
                 <a href="#notify" class="cta-button secondary">Get Updates</a>
             </div>
         </div>
     </div>
 
     <section class="details">
-        <h2>Embark on a Sensory Journey</h2>
-        <p>Step into an enchanting world where exceptional wines tell their stories. Our carefully orchestrated evening brings together the finest vintages from legendary vineyards, served in the atmospheric charm of our restored 19th-century wine cellar. As candlelight dances off ancient stone walls, you'll discover why wine isn't just a drink—it's an experience.</p>
-        <p>Our master sommeliers, including renowned wine expert Jacques Laurent, will guide you through an exquisite tasting journey. Each pour reveals layers of complexity, while stories of sun-drenched vineyards and generations of winemaking tradition transport you across the world's most celebrated wine regions.</p>
-        <p><strong>Date:</strong> Saturday, October 15th<br>
-        <strong>Time:</strong> 6:00 PM - 9:00 PM<br>
-        <strong>Location:</strong> The Rustic Vine, 123 Vineyard Lane</p>
-        <a href="#tickets" class="cta-button">Purchase Tickets</a>
+        <h2>Industrial Wine Experience</h2>
+        <p>Welcome to our converted warehouse space, where industrial chic meets wine sophistication. Our exposed brick walls and steel beams frame an extraordinary tasting experience in the heart of the city.</p>
+        <p>Join our master sommeliers, including renowned expert <strong>Jacques Laurent</strong>, as they guide you through an expertly curated selection of wines from both established and emerging urban wineries.</p>
+        <div class="event-details">
+            <p>Saturday, October 15th | 6:00 PM - 9:00 PM</p>
+            <p>The Industrial Cellar, 123 Warehouse District</p>
+        </div>
+        <a href="#tickets" class="cta-button">Reserve Your Spot</a>
     </section>
 
     <section class="exhibitors">
-        <h2 style="text-align: center; margin-bottom: 40px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;">Featured Wineries</h2>
+        <h2>Featured Wineries</h2>
         <div class="carousel">
             <div class="carousel-track">
                 <div class="exhibitor-card">
@@ -50,44 +51,47 @@
                     <p>South Australia</p>
                 </div>
             </div>
-            <button class="carousel-button carousel-prev">←</button>
-            <button class="carousel-button carousel-next">→</button>
+            <button class="carousel-button carousel-prev" aria-label="Previous">←</button>
+            <button class="carousel-button carousel-next" aria-label="Next">→</button>
         </div>
     </section>
 
     <section class="locations">
-        <h2 style="text-align: center; margin-bottom: 40px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;">Upcoming Festivals</h2>
+        <h2>Urban Venues</h2>
         <div class="locations-grid">
             <div class="location-card">
                 <h3>Sydney</h3>
-                <p>October 15th, 2023<br>The Rustic Vine</p>
-                <a href="#sydney" class="cta-button">Learn More</a>
+                <p>October 15th, 2023</p>
+                <p>The Industrial Cellar</p>
+                <a href="#sydney" class="cta-button secondary">Learn More</a>
             </div>
             <div class="location-card">
                 <h3>Melbourne</h3>
-                <p>November 5th, 2023<br>Victorian Wine Cellar</p>
-                <a href="#melbourne" class="cta-button">Learn More</a>
+                <p>November 5th, 2023</p>
+                <p>Warehouse 21</p>
+                <a href="#melbourne" class="cta-button secondary">Learn More</a>
             </div>
             <div class="location-card">
                 <h3>Brisbane</h3>
-                <p>Coming Soon<br>Location TBA</p>
-                <a href="#brisbane" class="cta-button">Get Notified</a>
+                <p>Coming Soon</p>
+                <p>Location TBA</p>
+                <a href="#brisbane" class="cta-button secondary">Join Waitlist</a>
             </div>
         </div>
     </section>
 
     <section class="newsletter">
-        <h2 style="text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;">Stay Updated</h2>
-        <p style="color: #4a4a4a; margin-bottom: 32px;">Be the first to know about new locations, special tastings, and exclusive events.</p>
+        <h2>Stay Connected</h2>
+        <p>Join our community to receive updates about upcoming events, exclusive tastings, and urban wine culture.</p>
         <form class="newsletter-form" action="https://formspree.io/f/myzkbqoq" method="POST">
-            <input type="email" name="email" placeholder="Enter your email address" required>
-            <button type="submit" class="cta-button">Sign Up for Updates</button>
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button type="submit" class="cta-button">Subscribe</button>
         </form>
     </section>
 
     <footer>
-        <p>Contact us: info@sipevents.com.au</p>
-        <p>© Sipevents Australia 2025. All rights reserved.</p>
+        <p>Contact: info@sipevents.com.au</p>
+        <p>© 2025 SIP Events Australia | Urban Wine Experiences</p>
     </footer>
 </body>
 </html>

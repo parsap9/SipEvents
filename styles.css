@@ -1,15 +1,15 @@
 /* Base styles */
 body {
-    font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+    font-family: 'Caslon', 'Playfair Display', serif;
     margin: 0;
     padding: 0;
-    background-color: #ffffff;
-    color: #dfac20;
+    background-color: #f8f5f0;
+    color: #5a98ac; /* Softened blue */
 }
 
 /* Hero section */
 .hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?ixlib=rb-1.2.1');
+    background-image: linear-gradient(rgba(90, 152, 172, 0.6), rgba(90, 152, 172, 0.7)), url('https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?ixlib=rb-1.2.1');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -17,162 +17,184 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .hero-content {
-    color: #ffffff;
+    color: #f8f5f0;
     max-width: 800px;
     padding: 0 20px;
+    position: relative;
+    z-index: 2;
 }
 
 h1 {
-    font-size: clamp(40px, 8vw, 56px);
-    margin-bottom: 16px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    font-size: clamp(40px, 8vw, 72px);
+    margin-bottom: 24px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    font-family: 'Caslon', serif;
 }
 
 .tagline {
-    font-size: clamp(20px, 4vw, 28px);
-    margin-bottom: 32px;
+    font-size: clamp(20px, 4vw, 32px);
+    margin-bottom: 40px;
     font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 4px;
+    font-family: 'Playfair Display', serif;
 }
 
 /* CTA Buttons */
 .cta-group {
     display: flex;
-    gap: 16px;
+    gap: 24px;
     justify-content: center;
     flex-wrap: wrap;
 }
 
 .cta-button {
-    background-color: #ffffff;
-    color: #2e834e;
-    padding: 18px 32px;
-    border: none;
-    border-radius: 980px;
-    font-size: 17px;
+    background-color: #5a98ac;
+    color: #f8f5f0;
+    padding: 20px 40px;
+    border: 1px solid #f8f5f0;
+    border-radius: 2px;
+    font-size: 18px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     text-decoration: none;
     display: inline-block;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    position: relative;
+    font-family: 'Caslon', serif;
 }
 
 .cta-button.secondary {
     background-color: transparent;
-    border: 2px solid #ffffff;
-    color: #ffffff;
+    border: 1px solid #f8f5f0;
+    color: #f8f5f0;
 }
 
 .cta-button:hover {
-    background-color: #f5f5f7;
-    transform: scale(1.02);
+    background-color: #f8f5f0;
+    color: #5a98ac;
+    transform: translateY(-3px);
 }
 
 .cta-button.secondary:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(248, 245, 240, 0.1);
 }
 
 /* Content Sections */
 .details {
-    padding: 80px 24px;
+    padding: 100px 40px;
     text-align: center;
-    max-width: 980px;
+    max-width: 1080px;
     margin: 0 auto;
 }
 
 .details h2 {
-    font-size: clamp(32px, 6vw, 48px);
-    margin-bottom: 32px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    color: #2e834e;
+    font-size: clamp(32px, 6vw, 56px);
+    margin-bottom: 40px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: #5a98ac;
+    font-family: 'Caslon', serif;
 }
 
 .details p {
-    font-size: 19px;
-    line-height: 1.6;
-    margin-bottom: 24px;
-    color: #dfac20;
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 32px;
+    color: #5a98ac;
     font-weight: 400;
+    font-family: 'Playfair Display', serif;
 }
 
 .details strong {
-    color: #2e834e;
+    color: #5a98ac;
     font-weight: 600;
+    font-family: 'Caslon', serif;
 }
 
 /* Location Cards */
 .locations {
-    background-color: #f8f8f8;
-    padding: 80px 24px;
+    background-color: #f8f5f0;
+    padding: 100px 40px;
 }
 
 .locations-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 32px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .location-card {
-    background: white;
-    border-radius: 16px;
+    min-width: 300px;
     padding: 32px;
+    background: #ffffff;
+    border-radius: 2px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+    transition: transform 0.4s ease;
+    color: #5a98ac;
+    box-shadow: 0 4px 12px rgba(90, 152, 172, 0.1);
+}
+
+.location-card:hover {
+    transform: translateY(-5px);
 }
 
 .location-card h3 {
-    font-size: 24px;
-    margin-bottom: 16px;
-    color: #2e834e;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #5a98ac;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 2px;
+    font-family: 'Caslon', serif;
 }
 
 .location-card p {
-    color: #dfac20;
-    margin-bottom: 24px;
+    color: #5a98ac;
+    margin-bottom: 28px;
     font-weight: 400;
+    font-size: 16px;
+    line-height: 1.8;
+    font-family: 'Playfair Display', serif;
 }
 
 /* Newsletter Section */
 .newsletter {
-    padding: 80px 24px;
+    padding: 100px 40px;
     text-align: center;
-    background-color: #ffffff;
+    background-color: #f8f5f0;
 }
 
 .newsletter-form {
-    max-width: 480px;
+    max-width: 520px;
     margin: 0 auto;
 }
 
 .newsletter-form input {
     width: 100%;
-    padding: 16px;
-    margin-bottom: 16px;
-    border: 1px solid #e5e5e5;
-    border-radius: 8px;
+    padding: 18px;
+    margin-bottom: 20px;
+    border: 1px solid #5a98ac;
+    border-radius: 2px;
     font-size: 16px;
     font-weight: 400;
+    font-family: 'Playfair Display', serif;
+    background-color: transparent;
+    color: #5a98ac;
+    transition: border-color 0.3s ease;
 }
 
 /* Exhibitor Cards */
 .exhibitors {
-    padding: 80px 24px;
-    background-color: #ffffff;
+    padding: 100px 40px;
+    background-color: #f8f5f0;
 }
 
 .carousel {
@@ -184,65 +206,76 @@ h1 {
 
 .carousel-track {
     display: flex;
-    transition: transform 0.5s ease;
-    gap: 32px;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    gap: 40px;
 }
 
 .exhibitor-card {
-    min-width: 280px;
-    padding: 24px;
-    background: #f8f8f8;
-    border-radius: 16px;
+    min-width: 300px;
+    padding: 32px;
+    background: #ffffff;
+    border-radius: 2px;
     text-align: center;
+    transition: transform 0.4s ease;
+    color: #5a98ac;
+    box-shadow: 0 4px 12px rgba(90, 152, 172, 0.1);
+}
+
+.exhibitor-card:hover {
+    transform: translateY(-5px);
 }
 
 .exhibitor-card img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    margin-bottom: 16px;
+    width: 140px;
+    height: 140px;
+    border-radius: 2px;
+    margin-bottom: 24px;
     object-fit: cover;
+    filter: sepia(10%);
 }
 
 .carousel-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    background: #ffffff;
+    color: #5a98ac;
+    border: 1px solid rgba(90, 152, 172, 0.2);
+    border-radius: 2px;
+    width: 48px;
+    height: 48px;
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 400;
+    transition: background 0.3s ease;
 }
 
 .carousel-prev {
-    left: 10px;
+    left: 20px;
 }
 
 .carousel-next {
-    right: 10px;
+    right: 20px;
 }
 
 /* Media Queries */
 @media (max-width: 768px) {
     .details, .locations, .newsletter, .exhibitors {
-        padding: 60px 20px;
+        padding: 80px 30px;
     }
 }
 
 /* Footer */
 footer {
-    background-color: #f8f8f8;
-    padding: 40px 24px;
+    background-color: #5a98ac;
+    padding: 48px 40px;
     text-align: center;
-    border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #f8f5f0;
 }
 
 footer p {
-    color: #dfac20;
+    color: #f8f5f0;
     margin: 0;
     font-size: 14px;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 2px;
 }
