@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #ffffff;
-    color: #000000;
+    color: #dfac20;
 }
 
 /* Hero section */
@@ -51,7 +51,7 @@ h1 {
 
 .cta-button {
     background-color: #ffffff;
-    color: #000000;
+    color: #2e834e;
     padding: 18px 32px;
     border: none;
     border-radius: 980px;
@@ -94,19 +94,19 @@ h1 {
     font-weight: 700;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    color: #000000;
+    color: #2e834e;
 }
 
 .details p {
     font-size: 19px;
     line-height: 1.6;
     margin-bottom: 24px;
-    color: #4a4a4a;
+    color: #dfac20;
     font-weight: 400;
 }
 
 .details strong {
-    color: #000000;
+    color: #2e834e;
     font-weight: 600;
 }
 
@@ -135,14 +135,14 @@ h1 {
 .location-card h3 {
     font-size: 24px;
     margin-bottom: 16px;
-    color: #000000;
+    color: #2e834e;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 .location-card p {
-    color: #4a4a4a;
+    color: #dfac20;
     margin-bottom: 24px;
     font-weight: 400;
 }
@@ -242,7 +242,7 @@ footer {
 }
 
 footer p {
-    color: #4a4a4a;
+    color: #dfac20;
     margin: 0;
     font-size: 14px;
 }
