@@ -59,4 +59,40 @@ document.addEventListener('DOMContentLoaded', function() {
             emailInput.setAttribute('name', 'email');
         }
     }
+
+    // Carousel functionality
+    const track = document.querySelector('.carousel-track');
+    const prevButton = document.querySelector('.carousel-prev');
+    const nextButton = document.querySelector('.carousel-next');
+    const cards = Array.from(track.getElementsByClassName('exhibitor-card'));
+    let currentIndex = 0;
+
+    function updateCarousel() {
+        const offset = -currentIndex * 100;
+        track.style.transform = `translateX(${offset}%)`;
+    }
+
+    // Initialize carousel styles
+    track.style.display = 'flex';
+    track.style.transition = 'transform 0.3s ease-in-out';
+    cards.forEach(card => {
+        card.style.flex = '0 0 100%';
+    });
+
+    // Add click handlers for carousel buttons
+    nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % cards.length;
+        updateCarousel();
+    });
+
+    prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        updateCarousel();
+    });
+
+    // Auto-rotate carousel every 5 seconds
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % cards.length;
+        updateCarousel();
+    }, 5000);
 });
