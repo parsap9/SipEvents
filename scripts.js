@@ -60,39 +60,127 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Carousel functionality
+    // Enhanced Carousel functionality with infinite scroll
     const track = document.querySelector('.carousel-track');
     const prevButton = document.querySelector('.carousel-prev');
     const nextButton = document.querySelector('.carousel-next');
     const cards = Array.from(track.getElementsByClassName('exhibitor-card'));
     let currentIndex = 0;
+    let isDragging = false;
+    let startPos = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
 
-    function updateCarousel() {
-        const offset = -currentIndex * 100;
-        track.style.transform = `translateX(${offset}%)`;
+    // Calculate how many cards to show based on viewport width
+    function getCardsToShow() {
+        if (window.innerWidth >= 1200) return 3;
+        if (window.innerWidth >= 768) return 2;
+        return 1;
+    }
+
+    function updateCarousel(smooth = true) {
+        const cardsToShow = getCardsToShow();
+        const cardWidth = track.clientWidth / cardsToShow;
+        const maxIndex = cards.length - cardsToShow;
+        
+        // Enable infinite scroll
+        if (currentIndex < 0) {
+            currentIndex = maxIndex;
+        } else if (currentIndex > maxIndex) {
+            currentIndex = 0;
+        }
+        
+        const offset = -(currentIndex * cardWidth);
+        track.style.transition = smooth ? 'transform 0.3s ease' : 'none';
+        track.style.transform = `translateX(${offset}px)`;
+        prevTranslate = offset;
     }
 
     // Initialize carousel styles
     track.style.display = 'flex';
-    track.style.transition = 'transform 0.3s ease-in-out';
-    cards.forEach(card => {
-        card.style.flex = '0 0 100%';
+    track.style.cursor = 'grab';
+    
+    function initializeCardStyles() {
+        const cardsToShow = getCardsToShow();
+        const cardWidth = track.clientWidth / cardsToShow;
+        cards.forEach(card => {
+            card.style.flex = `0 0 ${cardWidth}px`;
+            card.style.padding = '30px';
+            card.style.userSelect = 'none';
+        });
+    }
+
+    // Touch and mouse events for dragging
+    track.addEventListener('mousedown', dragStart);
+    track.addEventListener('touchstart', dragStart);
+    track.addEventListener('mousemove', drag);
+    track.addEventListener('touchmove', drag);
+    track.addEventListener('mouseup', dragEnd);
+    track.addEventListener('touchend', dragEnd);
+    track.addEventListener('mouseleave', dragEnd);
+
+    function dragStart(e) {
+        isDragging = true;
+        startPos = e.type === 'mousedown' ? e.pageX : e.touches[0].pageX;
+        track.style.cursor = 'grabbing';
+    }
+
+    function drag(e) {
+        if (!isDragging) return;
+        e.preventDefault();
+        const currentPosition = e.type === 'mousemove' ? e.pageX : e.touches[0].pageX;
+        const diff = currentPosition - startPos;
+        currentTranslate = prevTranslate + diff;
+        
+        track.style.transform = `translateX(${currentTranslate}px)`;
+    }
+
+    function dragEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        track.style.cursor = 'grab';
+        
+        const cardsToShow = getCardsToShow();
+        const cardWidth = track.clientWidth / cardsToShow;
+        const moveBy = Math.abs(currentTranslate - prevTranslate);
+        
+        if (moveBy > cardWidth / 4) {
+            if (currentTranslate > prevTranslate) {
+                currentIndex--;
+            } else {
+                currentIndex++;
+            }
+        }
+        
+        updateCarousel();
+    }
+
+    // Initialize card styles and handle window resize
+    initializeCardStyles();
+    window.addEventListener('resize', () => {
+        initializeCardStyles();
+        updateCarousel();
     });
 
     // Add click handlers for carousel buttons
     nextButton.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % cards.length;
+        currentIndex++;
         updateCarousel();
     });
 
     prevButton.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        currentIndex--;
         updateCarousel();
     });
 
     // Auto-rotate carousel every 5 seconds
     setInterval(() => {
-        currentIndex = (currentIndex + 1) % cards.length;
-        updateCarousel();
+        if (!isDragging) {
+            currentIndex++;
+            updateCarousel();
+        }
     }, 5000);
+
+    // Initial carousel update
+    updateCarousel();
 });
