@@ -1,5 +1,24 @@
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Add scrolling text animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes scrollBackground {
+            0% {
+                transform: rotate(-45deg) translateX(0);
+            }
+            100% {
+                transform: rotate(-45deg) translateX(-50%);
+            }
+        }
+
+        @keyframes scrollText {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    `;
+    document.head.appendChild(style);
+
     // Get all sections that should animate on scroll
     const sections = document.querySelectorAll('.details, .exhibitors, .locations, .newsletter');
 

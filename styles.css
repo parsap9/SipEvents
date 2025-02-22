@@ -1,30 +1,78 @@
 /* Base styles */
+@font-face {
+    font-family: 'Rono';
+    src: url('./assets/fonts/FontsFree-Net-Rono-Black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 300;
     margin: 0;
     padding: 0;
-    background-color: #ffffff;
-    color: #1d1d1f;
+    background-color: #D9D9D9;
+    color: #027B77;
     position: relative;
 }
 
 /* Decorative Elements */
 body::before {
-    content: '';
+    content: 'SIP CANBERRA • 12 AUG 2025 • BOOK NOW • ';
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 0% 0%, rgba(255,255,255,0.1) 0%, transparent 50%),
-                radial-gradient(circle at 100% 100%, rgba(122,25,53,0.05) 0%, transparent 50%);
+    background: radial-gradient(circle at 0% 0%, rgba(237,184,205,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(2,123,119,0.05) 0%, transparent 50%);
     pointer-events: none;
     z-index: -1;
+    color: rgba(2,123,119,0.03);
+    font-size: 120px;
+    white-space: nowrap;
+    animation: scrollBackground 20s linear infinite;
+    transform: rotate(-45deg);
+}
+
+@keyframes scrollBackground {
+    0% {
+        transform: rotate(-45deg) translateX(0);
+    }
+    100% {
+        transform: rotate(-45deg) translateX(-50%);
+    }
 }
 
 /* Hero section */
 .hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?ixlib=rb-1.2.1');
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: #D6A12F;
+    z-index: 1;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: #D6A12F;
+    z-index: 1;
+}
+
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('./assets/pics/hero.png');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -33,22 +81,72 @@ body::before {
     justify-content: center;
     text-align: center;
     position: relative;
+    overflow: visible;
+}
+
+.top-banner {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: #D6A12F;
+    z-index: 1;
     overflow: hidden;
 }
 
-.hero::after {
-    content: '';
+.top-banner::after {
+    content: 'WELCOME TO THE SHOW • WELCOME TO THE SHOW • ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    color: #FAF3E4;
+    font-family: 'Lato', sans-serif;
+    font-size: 100px;
+    line-height: 100px;
+    white-space: nowrap;
+    animation: scrollText 20s linear infinite;
+}
+
+.bottom-banner {
+    position: absolute;
+    bottom: -100px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: #D6A12F;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.bottom-banner::after {
+    content: 'JOIN US FOR AN AMAZING EXPERIENCE • JOIN US FOR AN AMAZING EXPERIENCE • ';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 150px;
-    background: linear-gradient(to top, rgba(255,255,255,1), transparent);
-    z-index: 1;
+    height: 100px;
+    color: #FAF3E4;
+    font-family: 'Lato', sans-serif;
+    font-size: 100px;
+    line-height: 100px;
+    white-space: nowrap;
+    animation: scrollText 20s linear infinite reverse;
+}
+
+@keyframes scrollText {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 .hero-content {
-    color: #ffffff;
+    color: #FAF3E4;
     max-width: 800px;
     padding: 0 20px;
     position: relative;
@@ -68,6 +166,7 @@ body::before {
 }
 
 h1 {
+    font-family: 'Rono', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 56px;
     margin-bottom: 24px;
     font-weight: 600;
@@ -76,6 +175,7 @@ h1 {
 }
 
 .tagline {
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 28px;
     margin-bottom: 40px;
     font-weight: 400;
@@ -92,8 +192,8 @@ h1 {
 }
 
 .cta-button {
-    background-color: #7a1935;
-    color: #ffffff;
+    background-color: #027B77;
+    color: #FAF3E4;
     padding: 12px 24px;
     border-radius: 980px;
     font-size: 17px;
@@ -103,9 +203,10 @@ h1 {
     display: inline-block;
     font-weight: 400;
     border: none;
-    box-shadow: 0 4px 15px rgba(122,25,53,0.3);
+    box-shadow: 0 4px 15px rgba(2,123,119,0.3);
     position: relative;
     overflow: hidden;
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 .cta-button::after {
@@ -125,19 +226,19 @@ h1 {
 }
 
 .cta-button.secondary {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(214,161,47,0.2);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,0.3);
-    color: #ffffff;
+    border: 1px solid rgba(214,161,47,0.3);
+    color: #FAF3E4;
 }
 
 .cta-button:hover {
-    background-color: #8f1e3f;
+    background-color: #D6A12F;
     transform: scale(1.05);
 }
 
 .cta-button.secondary:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(214,161,47,0.3);
 }
 
 /* Content Sections */
@@ -145,9 +246,7 @@ h1 {
     padding: 100px 40px;
     text-align: center;
     width: 100%;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3');
-    background-size: cover;
-    background-attachment: fixed;
+    background-color: #D9D9D9;
     position: relative;
     overflow: hidden;
 }
@@ -158,7 +257,7 @@ h1 {
     border-radius: 30px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     padding: 60px 40px;
-    background: rgba(255, 255, 255, 0.95);
+    background: #FAF3E4;
 }
 
 .details::before {
@@ -168,18 +267,19 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, transparent 48%, rgba(255,255,255,0.1) 50%, transparent 52%);
+    background: linear-gradient(45deg, transparent 48%, rgba(237,184,205,0.1) 50%, transparent 52%);
     background-size: 20px 20px;
     pointer-events: none;
 }
 
 .details h2 {
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 48px;
     margin-bottom: 40px;
     font-weight: 600;
     letter-spacing: -0.5px;
-    color: #1d1d1f;
-    background: linear-gradient(120deg, #1d1d1f 0%, #444 100%);
+    color: #027B77;
+    background: linear-gradient(120deg, #027B77 0%, #D6A12F 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -188,20 +288,19 @@ h1 {
     font-size: 21px;
     line-height: 1.5;
     margin-bottom: 32px;
-    color: #1d1d1f;
-    font-weight: 400;
+    color: #027B77;
+    font-weight: 300;
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 .details strong {
-    color: #7a1935;
+    color: #D6A12F;
     font-weight: 600;
 }
 
 /* Location Cards */
 .locations {
-    background-image: linear-gradient(rgba(245, 245, 247, 0.95), rgba(245, 245, 247, 0.95)), url('https://images.unsplash.com/photo-1528132596460-787bb7adfd5f');
-    background-size: cover;
-    background-attachment: fixed;
+    background-color: #D9D9D9;
     padding: 100px 40px;
     position: relative;
 }
@@ -213,7 +312,7 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(122,25,53,0.02) 10px, rgba(122,25,53,0.02) 20px);
+    background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(2,123,119,0.02) 10px, rgba(2,123,119,0.02) 20px);
 }
 
 .locations-grid {
@@ -228,18 +327,18 @@ h1 {
 .location-card {
     min-width: 300px;
     padding: 30px;
-    background: rgba(255, 255, 255, 0.9);
+    background: #FAF3E4;
     backdrop-filter: blur(10px);
     border-radius: 18px;
     text-align: center;
     transition: all 0.3s ease;
-    color: #1d1d1f;
+    color: #027B77;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     background-size: cover;
     background-position: center;
     position: relative;
     overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(237,184,205,0.2);
 }
 
 .location-card::before {
@@ -260,9 +359,10 @@ h1 {
 }
 
 .location-card h3 {
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 24px;
     margin-bottom: 16px;
-    color: #1d1d1f;
+    color: #027B77;
     font-weight: 600;
     letter-spacing: -0.2px;
     position: relative;
@@ -276,34 +376,33 @@ h1 {
     left: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #7a1935, transparent);
+    background: linear-gradient(90deg, transparent, #D6A12F, transparent);
 }
 
 .location-card p {
-    color: #86868b;
+    color: #027B77;
     margin-bottom: 24px;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 17px;
     line-height: 1.5;
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 .location-card .cta-button.secondary {
-    background-color: #7a1935;
-    color: #ffffff;
+    background-color: #027B77;
+    color: #FAF3E4;
 }
 
 .location-card .cta-button.secondary:hover {
-    background-color: #8f1e3f;
+    background-color: #D6A12F;
 }
 
 /* Newsletter Section */
 .newsletter {
     padding: 100px 40px;
     text-align: center;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1485095329183-d0797cdc5676');
-    background-size: cover;
-    background-attachment: fixed;
-    color: white;
+    background-color: #D9D9D9;
+    color: #FAF3E4;
     position: relative;
 }
 
@@ -314,7 +413,7 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at center, rgba(122,25,53,0.2) 0%, transparent 70%);
+    background: radial-gradient(circle at center, rgba(214,161,47,0.2) 0%, transparent 70%);
 }
 
 .newsletter-form {
@@ -323,8 +422,8 @@ h1 {
     backdrop-filter: blur(10px);
     padding: 30px;
     border-radius: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255,255,255,0.2);
+    background: #FAF3E4;
+    border: 1px solid rgba(250,243,228,0.2);
     position: relative;
 }
 
@@ -335,7 +434,7 @@ h1 {
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(45deg, #7a1935, transparent, #7a1935);
+    background: linear-gradient(45deg, #D6A12F, transparent, #D6A12F);
     border-radius: 22px;
     z-index: -1;
     opacity: 0.3;
@@ -345,28 +444,27 @@ h1 {
     width: 100%;
     padding: 12px 16px;
     margin-bottom: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(250, 243, 228, 0.3);
     border-radius: 8px;
     font-size: 17px;
-    font-weight: 400;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
+    font-weight: 300;
+    background-color: rgba(250, 243, 228, 0.1);
+    color: #027B77;
     transition: all 0.3s ease;
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 .newsletter-form input:focus {
-    border-color: rgba(255, 255, 255, 0.5);
-    background-color: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 0 15px rgba(255,255,255,0.1);
+    border-color: rgba(2, 123, 119, 0.5);
+    background-color: rgba(250, 243, 228, 0.15);
+    box-shadow: 0 0 15px rgba(2,123,119,0.1);
     outline: none;
 }
 
 /* Exhibitor Cards */
 .exhibitors {
     padding: 100px 40px;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('https://images.unsplash.com/photo-1507434965515-61832a5ed0ea');
-    background-size: cover;
-    background-attachment: fixed;
+    background-color: #D9D9D9;
     position: relative;
 }
 
@@ -377,7 +475,7 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(120deg, rgba(122,25,53,0.05) 0%, transparent 50%, rgba(122,25,53,0.05) 100%);
+    background: linear-gradient(120deg, rgba(2,123,119,0.05) 0%, transparent 50%, rgba(2,123,119,0.05) 100%);
 }
 
 .carousel {
@@ -401,15 +499,16 @@ h1 {
 .exhibitor-card {
     min-width: 300px;
     padding: 30px;
-    background: rgba(255, 255, 255, 0.9);
+    background: #FAF3E4;
     backdrop-filter: blur(10px);
     border-radius: 18px;
     text-align: center;
     transition: all 0.3s ease;
-    color: #1d1d1f;
+    color: #027B77;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255,255,255,0.3);
+    border: 1px solid rgba(237,184,205,0.3);
     user-select: none;
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 .exhibitor-card:hover {
@@ -437,8 +536,8 @@ h1 {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.9);
-    color: #1d1d1f;
+    background: #FAF3E4;
+    color: #027B77;
     border: none;
     border-radius: 50%;
     width: 40px;
@@ -449,10 +548,11 @@ h1 {
     backdrop-filter: blur(20px);
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     z-index: 1;
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 .carousel-button:hover {
-    background: rgba(255, 255, 255, 1);
+    background: #FAF3E4;
     transform: translateY(-50%) scale(1.1);
     box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
@@ -486,11 +586,10 @@ h1 {
 
 /* Footer */
 footer {
-    background-image: linear-gradient(rgba(245, 245, 247, 0.97), rgba(245, 245, 247, 0.97)), url('https://images.unsplash.com/photo-1474722883634-6b4c3b9c0e9f');
-    background-size: cover;
+    background-color: #D9D9D9;
     padding: 40px;
     text-align: center;
-    border-top: 1px solid rgba(210, 210, 215, 0.3);
+    border-top: 1px solid rgba(2,123,119,0.3);
     backdrop-filter: blur(10px);
     position: relative;
 }
@@ -502,12 +601,13 @@ footer::before {
     left: 0;
     width: 100%;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(122,25,53,0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(2,123,119,0.2), transparent);
 }
 
 footer p {
-    color: #86868b;
+    color: #027B77;
     margin: 0;
     font-size: 12px;
     letter-spacing: 0;
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
