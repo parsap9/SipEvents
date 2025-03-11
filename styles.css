@@ -31,6 +31,15 @@ body::before {
 /* Hero section */
 .hero {
     position: relative;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('./assets/pics/hero.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: visible;
 }
 
 .hero::before {
@@ -53,19 +62,6 @@ body::before {
     height: 100px;
     background: #D6A12F;
     z-index: 1;
-}
-
-.hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('./assets/pics/hero.png');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    overflow: visible;
 }
 
 .top-banner {
@@ -269,15 +265,15 @@ h1 {
     font-weight: 600;
 }
 
-/* Exhibitors Section */
-.exhibitors {
+/* Wineries Section */
+.wineries {
     padding: 100px 40px;
     background-color: #D9D9D9;
     position: relative;
     text-align: center;
 }
 
-.exhibitors h2 {
+.wineries h2 {
     font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 48px;
     margin-bottom: 40px;
@@ -289,12 +285,16 @@ h1 {
     -webkit-text-fill-color: transparent;
 }
 
-.winery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+.wineries-container {
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.wineries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
 }
 
 .winery-card {
@@ -305,6 +305,7 @@ h1 {
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .winery-card:hover {
@@ -385,6 +386,11 @@ h1 {
 
 .winery-link:hover::after {
     width: 100%;
+}
+
+.view-all-button {
+    margin-top: 30px;
+    display: inline-block;
 }
 
 /* Location Cards */
@@ -481,7 +487,7 @@ h1 {
     padding: 100px 40px;
     text-align: center;
     background-color: #D9D9D9;
-    color: #FAF3E4;
+    color: #027B77;
     position: relative;
 }
 
@@ -626,7 +632,7 @@ h1 {
 
 /* Media Queries */
 @media (max-width: 768px) {
-    .details, .locations, .newsletter, .exhibitors {
+    .details, .locations, .newsletter, .exhibitors, .wineries {
         padding: 60px 20px;
     }
     
@@ -642,7 +648,7 @@ h1 {
         display: none;
     }
     
-    .winery-grid {
+    .wineries-grid {
         grid-template-columns: 1fr;
     }
 }
