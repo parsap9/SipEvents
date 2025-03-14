@@ -427,26 +427,29 @@ h1 {
 
 /* Newsletter Section */
 .newsletter {
-    padding: 100px 40px;
+    padding: 120px 40px;
     text-align: center;
-    background-color: #D9D9D9;
-    color: #027B77;
-    position: relative;
+    background-color: var(--light);
+}
+
+.newsletter h2 {
+    color: var(--primary);
+    margin-bottom: 24px;
 }
 
 .newsletter p {
-    font-size: 17px;
-    color: #027B77;
-    opacity: 0.8;
+    color: var(--secondary);
     max-width: 600px;
     margin: 0 auto 48px;
+    font-size: 17px;
+    line-height: 1.6;
 }
 
 .newsletter-form {
     max-width: 460px;
     margin: 0 auto;
     padding: 40px;
-    background: var(--light);
+    background: white;
     border-radius: 24px;
     box-shadow: 0 1px 3px rgba(125, 10, 10, 0.1);
 }
@@ -459,17 +462,28 @@ h1 {
     border-radius: 12px;
     font-size: 17px;
     color: var(--primary);
-    background: white;
-}
-
-.newsletter-form input:focus {
-    outline: none;
-    border-color: var(--primary);
+    background: var(--light);
 }
 
 .newsletter-form input::placeholder {
     color: var(--secondary);
     opacity: 0.7;
+}
+
+.newsletter-form input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(125, 10, 10, 0.1);
+}
+
+.newsletter-form .cta-button {
+    width: 100%;
+    background-color: var(--primary);
+    color: var(--light);
+}
+
+.newsletter-form .cta-button:hover {
+    background-color: var(--secondary);
 }
 
 /* Exhibitor Cards */
