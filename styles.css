@@ -552,9 +552,9 @@ h1 {
     margin: 0 auto;
     padding: 60px 40px;
     background: #FAF3E4;
+    border: 2px solid #D6A12F;
     border-radius: 18px;
     position: relative;
-    overflow: hidden;
 }
 
 .coming-soon-container::before {
@@ -579,6 +579,9 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 2px solid #027B77;
+    border-radius: 12px;
+    transform: rotate(45deg);
 }
 
 .coming-soon-badge::before {
@@ -594,9 +597,8 @@ h1 {
 .badge-text {
     font-family: 'Rono', sans-serif;
     font-size: 48px;
-    color: #FAF3E4;
-    position: relative;
-    z-index: 1;
+    color: #027B77;
+    transform: rotate(-45deg);
 }
 
 .coming-soon-container h3 {
@@ -604,14 +606,12 @@ h1 {
     font-size: 32px;
     color: #027B77;
     margin-bottom: 16px;
-    position: relative;
 }
 
 .coming-soon-container p {
     font-family: 'Lato', sans-serif;
     font-size: 20px;
-    color: #D6A12F;
-    margin-bottom: 30px;
+    color: #027B77;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
@@ -621,15 +621,9 @@ h1 {
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 200px;
+    width: 40px;
     height: 2px;
-    background: linear-gradient(90deg, 
-        transparent,
-        #D6A12F,
-        #027B77,
-        #D6A12F,
-        transparent
-    );
+    background: #D6A12F;
 }
 
 @keyframes rotate {
@@ -717,32 +711,25 @@ footer p {
 
 /* Update Section Headers */
 h2 {
+    font-family: 'Lato', sans-serif;
+    font-size: 48px;
+    margin-bottom: 40px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    color: #027B77;
     position: relative;
     padding-bottom: 20px;
-    margin-bottom: 40px;
 }
 
-h2::before, h2::after {
+h2::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+    width: 60px;
     height: 2px;
-}
-
-h2::before {
-    width: 100px;
-    background: linear-gradient(90deg, transparent, #D6A12F, transparent);
-}
-
-h2::after {
-    width: 30px;
-    height: 30px;
-    bottom: -14px;
-    background: #D9D9D9;
-    border: 2px solid #D6A12F;
-    transform: translateX(-50%) rotate(45deg);
+    background: #D6A12F;
 }
 
 /* Update Location Cards */
