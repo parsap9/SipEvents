@@ -7,78 +7,110 @@
     <link rel="stylesheet" href="styles.css">
     <script defer src="scripts.js"></script>
     <style>
+        :root {
+            --primary: #7D0A0A;    /* Dark red */
+            --secondary: #BF3131;  /* Bright red */
+            --accent: #EAD196;    /* Warm beige */
+            --light: #EEEEEE;     /* Light gray */
+        }
+
+        body {
+            background-color: var(--light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
         .booking-container {
             max-width: 980px;
-            margin: 100px auto;
+            margin: 60px auto;
             padding: 60px 40px;
-            background: #FAF3E4;
-            border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 4px 24px rgba(125, 10, 10, 0.08);
+            flex: 1;
+            box-sizing: border-box;
         }
         
         .booking-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
+            position: relative;
         }
         
         .booking-header h1 {
-            font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Rono', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             font-size: 48px;
             font-weight: 600;
             letter-spacing: -0.5px;
-            color: #027B77;
-            background: linear-gradient(120deg, #027B77 0%, #D6A12F 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--primary);
+            margin-bottom: 16px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .booking-header p {
+            color: var(--secondary);
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
         }
         
         .booking-type-selector {
             display: flex;
             justify-content: center;
             gap: 20px;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
         }
         
         .booking-type-btn {
-            background-color: rgba(2,123,119,0.1);
-            color: #027B77;
-            padding: 15px 30px;
-            border-radius: 980px;
+            background-color: white;
+            color: var(--primary);
+            padding: 20px 40px;
+            border-radius: 16px;
             font-size: 18px;
             cursor: pointer;
             transition: all 0.3s ease;
-            border: 2px solid transparent;
+            border: 2px solid var(--primary);
             font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            min-width: 200px;
         }
         
         .booking-type-btn:hover {
-            background-color: rgba(2,123,119,0.2);
+            background-color: var(--primary);
+            color: white;
             transform: translateY(-2px);
         }
         
         .booking-type-btn.active {
-            background-color: #027B77;
-            color: #FAF3E4;
-            border-color: #027B77;
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
         }
         
-        .booking-form {
-            display: none;
+        .form-row .form-group {
+            flex: 1 1 300px;
+            min-width: 0;
+            margin-bottom: 0;
         }
-        
-        .booking-form.active {
-            display: block;
-        }
-        
+
         .form-group {
             margin-bottom: 25px;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-weight: 500;
-            color: #027B77;
+            color: var(--primary);
+            font-size: 16px;
             font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
         
@@ -86,53 +118,203 @@
         .form-group select, 
         .form-group textarea {
             width: 100%;
-            padding: 12px 16px;
-            border: 1px solid rgba(2,123,119,0.3);
-            border-radius: 8px;
-            font-size: 17px;
-            font-weight: 300;
-            background-color: rgba(250, 243, 228, 0.5);
-            color: #027B77;
+            padding: 16px;
+            border: 2px solid rgba(125, 10, 10, 0.1);
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 400;
+            background-color: white;
+            color: var(--primary);
             transition: all 0.3s ease;
             font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+        
+        .form-group input:hover, 
+        .form-group select:hover, 
+        .form-group textarea:hover {
+            border-color: var(--secondary);
         }
         
         .form-group input:focus, 
         .form-group select:focus, 
         .form-group textarea:focus {
             outline: none;
-            border-color: #D6A12F;
-            box-shadow: 0 0 0 2px rgba(214,161,47,0.2);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(125, 10, 10, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
         }
         
-        .form-row {
-            display: flex;
-            gap: 20px;
-        }
-        
-        .form-row .form-group {
-            flex: 1;
+        .form-section-title {
+            color: var(--primary);
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: 600;
         }
         
         .submit-container {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 60px;
+        }
+
+        .submit-container .cta-button {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px 48px;
+            border-radius: 16px;
+            font-size: 18px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            min-width: 200px;
+        }
+
+        .submit-container .cta-button:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(125, 10, 10, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            margin-top: auto;
+        }
+
+        footer p {
+            color: var(--primary);
+            opacity: 0.8;
+            margin: 5px 0;
         }
         
         @media (max-width: 768px) {
             .booking-container {
-                margin: 60px 20px;
-                padding: 40px 20px;
+                margin: 20px;
+                padding: 30px 20px;
             }
             
             .form-row {
                 flex-direction: column;
-                gap: 0;
+                gap: 25px;
             }
             
+            .form-row .form-group {
+                flex: 1 1 100%;
+            }
+
             .booking-type-selector {
                 flex-direction: column;
-                align-items: center;
+                align-items: stretch;
+                gap: 16px;
+            }
+
+            .booking-header h1 {
+                font-size: 36px;
+            }
+
+            .booking-type-btn {
+                width: 100%;
+            }
+
+            .form-section {
+                padding: 20px;
+            }
+
+            .checkbox-group {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+        }
+
+        /* Loading state for submit button */
+        .submit-container .cta-button.loading {
+            background-color: var(--accent);
+            pointer-events: none;
+        }
+
+        .submit-container .cta-button.loading::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid white;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        @keyframes spin {
+            to { transform: translateY(-50%) rotate(360deg); }
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 12px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(125, 10, 10, 0.2);
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .checkbox-label:hover input[type="checkbox"] {
+            border-color: var(--secondary);
+        }
+
+        /* Add base styles to ensure proper box sizing */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        /* Ensure proper spacing for sections */
+        .form-section + .form-section {
+            margin-top: 30px;
+        }
+
+        /* Improve spacing for mobile */
+        @media (max-width: 480px) {
+            .booking-container {
+                margin: 10px;
+                padding: 20px 15px;
+            }
+
+            .form-section {
+                padding: 15px;
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            .form-row {
+                gap: 20px;
             }
         }
     </style>
@@ -152,68 +334,126 @@
         <form id="corporate-form" class="booking-form" action="https://formspree.io/f/myzkbqoq" method="POST" style="display: none;">
             <input type="hidden" name="booking-type" value="corporate">
             
-            <div class="form-group">
-                <label for="corp-company">Company Name</label>
-                <input type="text" id="corp-company" name="company" required>
-            </div>
-            
-            <div class="form-row">
+            <div class="form-section">
+                <div class="form-section-title">Company Information</div>
                 <div class="form-group">
-                    <label for="corp-contact-name">Contact Person</label>
-                    <input type="text" id="corp-contact-name" name="contact-name" required>
+                    <label for="corp-company">Company Name</label>
+                    <input type="text" id="corp-company" name="company" required placeholder="Enter your company name">
                 </div>
-                <div class="form-group">
-                    <label for="corp-position">Position</label>
-                    <input type="text" id="corp-position" name="position" required>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="corp-contact-name">Contact Person</label>
+                        <input type="text" id="corp-contact-name" name="contact-name" required placeholder="Full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="corp-email">Email Address</label>
+                        <input type="email" id="corp-email" name="email" required placeholder="email@company.com">
+                    </div>
                 </div>
-            </div>
-            
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="corp-email">Email Address</label>
-                    <input type="email" id="corp-email" name="email" required>
-                </div>
+
                 <div class="form-group">
                     <label for="corp-phone">Phone Number</label>
-                    <input type="tel" id="corp-phone" name="phone" required>
+                    <input type="tel" id="corp-phone" name="phone" required placeholder="Your contact number">
                 </div>
             </div>
-            
-            <div class="form-group">
-                <label for="corp-location">Event Location</label>
-                <select id="corp-location" name="location" required>
-                    <option value="" disabled selected>Select a location</option>
-                    <option value="canberra">Canberra - May 23rd-25th 2024</option>
-                    <option value="sydney">Sydney - November 2025</option>
-                    <option value="melbourne">Melbourne - February 2026</option>
-                    <option value="custom">Custom Location (Private Event)</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="corp-attendees">Number of Attendees</label>
-                <input type="number" id="corp-attendees" name="attendees" min="10" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="corp-date">Preferred Date</label>
-                <input type="date" id="corp-date" name="date" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="corp-budget">Approximate Budget</label>
-                <select id="corp-budget" name="budget" required>
-                    <option value="" disabled selected>Select budget range</option>
-                    <option value="1000-3000">$1,000 - $3,000</option>
-                    <option value="3000-5000">$3,000 - $5,000</option>
-                    <option value="5000-10000">$5,000 - $10,000</option>
-                    <option value="10000+">$10,000+</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="corp-requirements">Event Requirements</label>
-                <textarea id="corp-requirements" name="requirements" rows="4" placeholder="Please describe your event requirements, including any specific wine preferences, catering needs, or special requests"></textarea>
+
+            <div class="form-section">
+                <div class="form-section-title">Event Details</div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="corp-event-type">Event Type</label>
+                        <select id="corp-event-type" name="event-type" required>
+                            <option value="" disabled selected>Select event type</option>
+                            <option value="client-entertainment">Client Entertainment</option>
+                            <option value="team-building">Team Building</option>
+                            <option value="holiday-party">Holiday Party</option>
+                            <option value="product-launch">Product Launch</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="corp-time">Preferred Time</label>
+                        <select id="corp-time" name="preferred-time" required>
+                            <option value="" disabled selected>Select preferred time</option>
+                            <option value="lunch">Lunch (11:30 AM - 2:30 PM)</option>
+                            <option value="afternoon">Afternoon (2:30 PM - 5:30 PM)</option>
+                            <option value="evening">Evening (6:00 PM - 9:00 PM)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="corp-location">Event Location</label>
+                        <select id="corp-location" name="location" required>
+                            <option value="" disabled selected>Select a location</option>
+                            <option value="canberra">Canberra - July 18th-20th 2025</option>
+                            <option value="sydney">Sydney - November 2025</option>
+                            <option value="melbourne">Melbourne - February 2026</option>
+                            <option value="custom">Custom Location (Private Event)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="corp-date">Preferred Date</label>
+                        <input type="date" id="corp-date" name="date" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="corp-attendees">Number of Attendees</label>
+                        <input type="number" id="corp-attendees" name="attendees" min="10" required placeholder="Minimum 10 guests">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Experience Options (Select all that interest you)</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="experience[]" value="wine-tasting">
+                            Wine tasting only
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="experience[]" value="wine-food">
+                            Wine + food pairing
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="experience[]" value="vineyard-tour">
+                            Guided vineyard tour
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="experience[]" value="sommelier">
+                            Sommelier-led experience
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="experience[]" value="team-building">
+                            Team-building activities
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="corp-dietary">Dietary Requirements or Accessibility Needs</label>
+                    <textarea id="corp-dietary" name="dietary" rows="2" placeholder="Please list any dietary restrictions or accessibility requirements"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="corp-source">How Did You Hear About Us?</label>
+                    <select id="corp-source" name="source" required>
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="search">Search Engine</option>
+                        <option value="social">Social Media</option>
+                        <option value="referral">Referral</option>
+                        <option value="event">Previous Event</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="corp-comments">Additional Comments or Special Requests</label>
+                    <textarea id="corp-comments" name="comments" rows="4" placeholder="Any other details or special requests you'd like us to know about"></textarea>
+                </div>
             </div>
             
             <div class="submit-container">
@@ -232,6 +472,7 @@
             const individualBtn = document.getElementById('individual-btn');
             const corporateBtn = document.getElementById('corporate-btn');
             const corporateForm = document.getElementById('corporate-form');
+            const form = document.getElementById('corporate-form');
             
             individualBtn.addEventListener('click', function() {
                 window.location.href = 'https://www.gatsbyapp.co/';
@@ -241,8 +482,20 @@
                 // Hide the booking type selector
                 document.querySelector('.booking-type-selector').style.display = 'none';
                 
-                // Show the corporate form
+                // Show the corporate form with fade-in effect
+                corporateForm.style.opacity = '0';
                 corporateForm.style.display = 'block';
+                setTimeout(() => {
+                    corporateForm.style.opacity = '1';
+                    corporateForm.style.transition = 'opacity 0.3s ease';
+                }, 10);
+            });
+
+            // Add loading state to submit button
+            form.addEventListener('submit', function(e) {
+                const submitBtn = form.querySelector('.cta-button');
+                submitBtn.classList.add('loading');
+                submitBtn.textContent = 'Sending...';
             });
         });
     </script>

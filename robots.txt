@@ -1,0 +1,13 @@
+# www.sipevents.com.au robots.txt file
+User-agent: *
+Allow: /
+Allow: /book.html
+
+# Sitemap location
+Sitemap: https://sipevents.com.au/sitemap.xml
+
+# Prevent caching of assets
+Disallow: /assets/
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /*.json$ 

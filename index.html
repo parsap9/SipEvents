@@ -3,9 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIP - Urban Wine Experience</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>SIP - Urban Wine Experience | Wine Tasting Events Australia</title>
+    <meta name="title" content="SIP - Urban Wine Experience | Wine Tasting Events Australia">
+    <meta name="description" content="Experience expertly curated wine tastings paired with local artisanal cuisine. Join SIP for unforgettable evenings of wine, food, and culture in Canberra, Sydney, and Melbourne.">
+    <meta name="keywords" content="wine tasting, wine events, urban wine, food pairing, sommelier, Australia wine events, corporate events">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sipevents.com.au/">
+    <meta property="og:title" content="SIP - Urban Wine Experience | Wine Tasting Events Australia">
+    <meta property="og:description" content="Experience expertly curated wine tastings paired with local artisanal cuisine. Join SIP for unforgettable evenings of wine, food, and culture.">
+    <meta property="og:image" content="https://sipevents.com.au/assets/pics/hero.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sipevents.com.au/">
+    <meta property="twitter:title" content="SIP - Urban Wine Experience | Wine Tasting Events Australia">
+    <meta property="twitter:description" content="Experience expertly curated wine tastings paired with local artisanal cuisine. Join SIP for unforgettable evenings of wine, food, and culture.">
+    <meta property="twitter:image" content="https://sipevents.com.au/assets/pics/hero.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://sipevents.com.au/">
+    
     <link rel="stylesheet" href="styles.css">
     <script defer src="scripts.js"></script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "SIP Urban Wine Experience",
+        "description": "Expertly curated wine tasting experiences paired with local artisanal cuisine",
+        "organizer": {
+            "@type": "Organization",
+            "name": "SIP Events Australia",
+            "url": "https://sipevents.com.au"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": "https://sipevents.com.au/book.html",
+            "availability": "https://schema.org/InStock"
+        },
+        "location": {
+            "@type": "City",
+            "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "Australia"
+            }
+        },
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled"
+    }
+    </script>
 </head>
 <body>
     <div class="hero">
@@ -16,7 +73,7 @@
             <p class="tagline">Urban Wine Culture</p>
             <div class="cta-group">
                 <a href="book.html" class="cta-button">Book Experience</a>
-                <a href="#notify" class="cta-button secondary">Get Updates</a>
+                <a href="#newsletter" class="cta-button secondary">Get Updates</a>
             </div>
         </div>
     </div>
@@ -69,7 +126,7 @@
         </div>
     </section>
 
-    <section class="newsletter">
+    <section class="newsletter" id="newsletter">
         <h2>Stay Connected</h2>
         <p>Join our community to receive updates about upcoming events, exclusive tastings, and urban wine culture.</p>
         <form class="newsletter-form" action="https://formspree.io/f/myzkbqoq" method="POST">
